@@ -7,6 +7,11 @@
       "slug": "dashboard",
       "submenu": [
         {
+          "url": "/",
+          "name": "Home",
+          "slug": "dashboard-analytics"
+        },
+        {
           "url": "/analytics",
           "name": "Analytics",
           "slug": "dashboard-analytics"
@@ -37,7 +42,7 @@
           "slug": "Passengers-all"
         },
         {
-          "url": "Passengers/trips",
+          "url": "trips",
           "name": "Trips",
           "slug": "Passengers-trips"
         }
@@ -67,6 +72,21 @@
           "slug": "drivers-vehicles"
         }
       ]
+    },
+    {
+      "menuHeader": "Trips"
+    },
+    {
+      "name": "All Trips",
+      "url": "trips",
+      "icon": "menu-icon tf-icons bx bx-wallet",
+      "slug": "trips"
+    },
+    {
+      "name": "New Trip",
+      "url": "trips/create",
+      "icon": "menu-icon tf-icons bx bx-time",
+      "slug": "trips/create"
     },
     {
       "menuHeader": "Configurations"

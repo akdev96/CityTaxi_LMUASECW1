@@ -16,7 +16,7 @@ use App\Http\Controllers\pages\MiscUnderMaintenance;
 use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\LoginAdmin;
 use App\Http\Controllers\authentications\RegisterBasic;
-use App\Http\Controllers\authentications\RegisterDriver;
+use App\Http\Controllers\authentications\DriverController;
 use App\Http\Controllers\authentications\ForgotPasswordBasic;
 use App\Http\Controllers\cards\CardBasic;
 use App\Http\Controllers\user_interface\Accordion;
@@ -47,7 +47,8 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
-use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\authentications\AuthController;
+use App\Http\Controllers\trips\TripController;
 
 
 // Main Page Route
@@ -88,11 +89,49 @@ Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index
 Route::get('/auth/login', [LoginBasic::class, 'index'])->name('auth-login');
 Route::get('/auth/admin-login', [LoginAdmin::class, 'index'])->name('auth-login-admin');
 Route::get('/auth/register-passenger', [RegisterBasic::class, 'index'])->name('auth-register-passenger');
-Route::get('/auth/register-driver', [RegisterDriver::class, 'index'])->name('auth-register-driver');
+Route::get('/auth/register-driver', [DriverController::class, 'index'])->name('auth-register-driver');
 Route::get('/auth/forgot-password', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password');
 
+// Passenger
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+// // Driver
+// Route::post('/register-driver', [DriverController::class, 'register'])->name('register-driver');
+// Route::post('/login-driver', [DriverController::class, 'login'])->name('login-driver');
+
+// Admin
+
+// Trips
+
+Route::middleware(['auth'])->group(function () {
+    // Display a listing of trips
+    Route::get('/trips', [TripController::class, 'index'])->name('trips.index');
+
+    // Show the form to create a new trip
+    Route::get('/trips/create', [TripController::class, 'create'])->name('trips.create');
+
+    // Store a newly created trip in the database
+    Route::post('/trips', [TripController::class, 'store'])->name('trips.store');
+
+    // Display a specific trip
+    Route::get('/trips/{trip}', [TripController::class, 'show'])->name('trips.show');
+
+    // Show the form to edit an existing trip
+    Route::get('/trips/{trip}/edit', [TripController::class, 'edit'])->name('trips.edit');
+
+    // Update the specified trip in the database
+    Route::put('/trips/{trip}', [TripController::class, 'update'])->name('trips.update');
+
+    // Delete a specific trip from the database
+    Route::delete('/trips/{trip}', [TripController::class, 'destroy'])->name('trips.destroy');
+
+});
+
+
+
+
+
 
 // cards
 Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');

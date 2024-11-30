@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "0a3519e2-120c-40e4-864c-57c70dc620b4",
+		"name": "City Taxi Laravel API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37996748",
+		"_collection_link": "https://product-service-delivery.postman.co/workspace/Team-Workspace~a91e3073-3923-4b0f-81bc-2efee33a6d18/collection/37996748-0a3519e2-120c-40e4-864c-57c70dc620b4?action=share&source=collection_link&creator=37996748"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Dilan",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Fernando",
+									"type": "text"
+								},
+								{
+									"key": "nic_no",
+									"value": "199603800649",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dilan@citytaxi.lmu",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Logmein001",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Logmein001",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "0705107374",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "2024-11-29",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "BMRoad, Nivithigala",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "ratnapura",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Nivithaigala",
+									"type": "text"
+								},
+								{
+									"key": "zip_code",
+									"value": "70400",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"description": "male, female or other",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Passenger",
+									"description": "Passenger, Driver or Admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_number",
+									"value": "430",
+									"description": "User Email or Mobile No",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "JNw7h6El2KcbUnf",
+									"description": "Password",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Passenger",
+									"description": "Confirm Password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passenger",
+			"item": []
+		},
+		{
+			"name": "Driver",
+			"item": [
+				{
+					"name": "add_driver",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiY2M0MzVlZjBlZmE1ODc4YzA4N2E1MzZjNWEyOTQ0NDJlOGEzNjYzOTE4NjVlYjBhNGY3NzhkMjRlYjA3NTk3NGVlMTBjYmU1NmUwNmJjYWUiLCJpYXQiOjE3Mjk2MjA2OTQuNDM1MzA0LCJuYmYiOjE3Mjk2MjA2OTQuNDM1MzA4LCJleHAiOjE3NjExNTY2OTQuNDI0NzYyLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.DyXxzaJcCEO1qxENv-KuvIOmHzE_gwooltOvxEaX_SvijzCo6jfPwRg61WgJ_NYKfKLdqyubXlEqDdFHR7E3RneaB6pmmlRzwJOjRIAdfRn5TdlbUH1RDg1Wk3Nj5dYcNzwariNJQrzOdPPrb8NHg4hChFW6IXz8SDbS9pOJw7KRKrF_o3DnpZGZHQFcXlBqEE60lb1oPBk8uT0Mc-ZgERMKIkS5hfHUQsJDihP4Uhg6NjW2WTBDF6rf77X1DrMLxMPeTmAfhhePanD5p9NME6o42R7WnYgVVqm76x-ojzcRV-D8oUGSuibIJACWbVVuIFJwkcvPhl_y59SxP0hR6G_7C_SE71mSHdl6UBkmFhT1sd3Icqfj9ckY8ZijTXiH4BCS1aXmZC4_AVz9cz_XKv6i-MXnnR6GbJqoxEBxe2apHc7Faln8ysUsKU-yb1T58MLdJeNN4_2g1KggHHLmFV7tIgd0m26D5Vz0XDSKMjS-CG5Glhs41pUHzwPLOTHA9CIcdzvjlBCbFRQgKwqTdPJeeaeAunXCzxBrfm9wQP1DcnFFmd6EUhLky-5pPz7HAzQaYqBmiWKvX48EsulYLXF6XW1_re9rb_X3mAnhqxBhEush8Nk1lZodKp5xpRXCmJq3JlfuyEiS6c8_PWmVaZsgg-GCY0X4sRkEjCPo5R4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "nic_no",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/add_driver",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"add_driver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "approve_driver_reg",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_nicnum",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_phonenum",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_brithday",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_gender",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_city",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_zipcode",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_district",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_emergencycontactnum",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/approvedriverreg",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"approvedriverreg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reject_driver_reg",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_nicnum",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_phonenum",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_brithday",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_gender",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_city",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_zipcode",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_district",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_emergencycontactnum",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/rejectdriverreg",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"rejectdriverreg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip",
+			"item": []
+		},
+		{
+			"name": "Vehicle",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWIwYjFkODliNGRlYmNjODFiMTg4NzFlZGM1OWE1Y2U4MzViNmQxOGZlNGVhOGFlYjUwZDA1NDkzMWU5ZTVkOTM0NWI1YjgyYmE4NTc0NTAiLCJpYXQiOjE3MzI5MDQzNTUuNjU0MTA0LCJuYmYiOjE3MzI5MDQzNTUuNjU0MTA4LCJleHAiOjE3NjQ0NDAzNTUuNjM1NDk3LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.WXenEgPiPQnpmGHlPeAJTGNLvXoCwqd7Fi6FiMO9Q6DVhefhB2Gge2V3kCoLIcCfqEy6XE4Y2b4bKi0tozm8mkaoBCuTLSvXeDjHeF_j60I9-yZpAaKaYuY5e6wfb2cdvdwrML1UryhyOeYJqKONWpp24wsPIjSQEnGFw436100rcyUNZpdjkL7rlM2ZUjpwKYVj8FWbBfeCKQfGN9VgGFah7_10YWMcopkCIMqPKkuFA06XD3sBcVDLjx8rJ2-88rYZ6tBE9rBaGgUKQFcdTK8LfvOGpjHFqsClrScnOXlIp_wRr8itO2C3dvme3zm98fZttfgFX2ri3uGd3J7V2DNzEwnL_kNViiAJ_1vsWQFVp4cfuvLH1kjM07mf3Ko7zlgp-YkFnV5uT-Uha1unSMJ8nwEUWbizOoTByFiN_knyXyrbhgYVAr9eW8SMXPeLJoKXqifmEeT35EWUM_dWkt4_FlBhgVWZQSqQrIl1JoGSNhrLXaLoGPn0l8del5JY_6vVyPnR5G2p4MiXBsy-LyT4JeatTMa6OP0z6wSmUNv_5IqQ3O5Xno2dEOCa6pLib0PeICPjLY8U45oSb79cjaAaDftH57_hPmcHFD_-CRtBxFb7RmO8HapA5U_pioLpG5GasvklgiveKTq4qAyl1fh0EiPbAcD7LhBKlBzCOoY",
+			"type": "string"
+		}
+	]
+}

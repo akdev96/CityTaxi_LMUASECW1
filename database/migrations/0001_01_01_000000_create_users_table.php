@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,11 +15,13 @@ return new class extends Migration
             $table->string('role')->default('Passenger');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('nic_no')->unique();;
+            $table->string('nic_no')->unique();
+            $table->string('license_no')->unique();
+            $table->string('vehicle_no')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('profile_pic')->nullable();;
+            $table->string('profile_pic')->nullable();
             $table->string('mobile_number');
             $table->date('birth_day');
             $table->text('address');
