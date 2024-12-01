@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Models\User;
 
-class TripController extends Controller
+class API_TripController extends Controller
 {
     /**
      * Display a listing of the trips.
@@ -25,6 +25,7 @@ class TripController extends Controller
     {
         return view('content.trips.create'); // Return a form view to create a new trip
     }
+
 
     /**
      * Store a newly created trip in the database.
@@ -133,7 +134,6 @@ class TripController extends Controller
         $passengers = User::where('role', 'passenger') // Assuming 'role' column identifies passengers
             ->where(function ($query) use ($keyword) {
                 $query->where('first_name', 'LIKE', "%{$keyword}%")
-                    ->where('last_name', 'LIKE', "%{$keyword}%")
                     ->orWhere('email', 'LIKE', "%{$keyword}%")
                     ->orWhere('mobile_number', 'LIKE', "%{$keyword}%");
             })
@@ -155,13 +155,13 @@ class TripController extends Controller
 
         $drivers = User::where('role', 'driver') // Assuming 'role' column identifies drivers
             ->where(function ($query) use ($keyword) {
-                $query->where('first_name', 'LIKE', "%{$keyword}%")
-                    ->where('last_name', 'LIKE', "%{$keyword}%")
+                $query->where('name', 'LIKE', "%{$keyword}%")
                     ->orWhere('email', 'LIKE', "%{$keyword}%")
-                    ->orWhere('mobile_number', 'LIKE', "%{$keyword}%");
+                    ->orWhere('phone', 'LIKE', "%{$keyword}%");
             })
             ->get();
 
         return response()->json($drivers);
     }
+
 }

@@ -1,6 +1,6 @@
 @extends('../layouts/contentNavbarLayout')
 
-@section('title', 'Tables - Basic Tables')
+@section('title', 'All Trips')
 
 @section('content')
 <!-- Basic Bootstrap Table -->
@@ -10,16 +10,16 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Project</th>
-          <th>Client</th>
-          <th>Users</th>
+          <th>Trip ID</th>
+          <th>Passenger</th>
+          <th>Driver</th>
           <th>Status</th>
-          <th>Actions</th>
+          <th></th>
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
         <tr>
-          <td><i class="bx bxl-angular bx-md text-danger me-4"></i> <span>Angular Project</span></td>
+          <td><i class="bx bx-hash bx-md text-info me-4"></i> <span>88888888</span></td>
           <td>Albert Cook</td>
           <td>
             <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
